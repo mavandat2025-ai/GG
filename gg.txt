@@ -1,0 +1,52 @@
+local ScreenGui = Instance.new("ScreenGui")
+local Gear = Instance.new("ImageButton")
+local Frame = Instance.new("Frame")
+local Execute = Instance.new("TextButton")
+local Box = Instance.new("TextBox")
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.Name = "DeltaClone"
+
+-- ICON BÁNH RĂNG
+Gear.Parent = ScreenGui
+Gear.Size = UDim2.new(0,50,0,50)
+Gear.Position = UDim2.new(0,15,0.5,-25)
+Gear.BackgroundTransparency = 1
+Gear.Image = "rbxassetid://6031280882"
+
+-- MENU
+Frame.Parent = ScreenGui
+Frame.Size = UDim2.new(0,280,0,200)
+Frame.Position = UDim2.new(0.5,-140,0.5,-100)
+Frame.BackgroundColor3 = Color3.fromRGB(30,30,30)
+Frame.Visible = false
+Frame.Active = true
+Frame.Draggable = true
+
+-- Ô nhập script
+Box.Parent = Frame
+Box.Size = UDim2.new(0.9,0,0,100)
+Box.Position = UDim2.new(0.05,0,0.1,0)
+Box.Text = "print('Hello')"
+Box.BackgroundColor3 = Color3.fromRGB(20,20,20)
+Box.TextColor3 = Color3.new(1,1,1)
+Box.ClearTextOnFocus = false
+Box.MultiLine = true
+
+-- NÚT EXECUTE
+Execute.Parent = Frame
+Execute.Size = UDim2.new(0.9,0,0,40)
+Execute.Position = UDim2.new(0.05,0,0.7,0)
+Execute.Text = "EXECUTE"
+Execute.BackgroundColor3 = Color3.fromRGB(45,45,45)
+Execute.TextColor3 = Color3.new(1,1,1)
+
+-- BẬT TẮT MENU
+Gear.MouseButton1Click:Connect(function()
+    Frame.Visible = not Frame.Visible
+end)
+
+-- CHẠY SCRIPT
+Execute.MouseButton1Click:Connect(function()
+    loadstring(Box.Text)()
+end)
